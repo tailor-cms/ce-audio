@@ -1,14 +1,35 @@
 <template>
-  <div>
-    <p>Edit element top toolbar {{ element?.id }}</p>
+  <div class="align-center justify-center">
+    <UploadBtn
+      :extensions="[
+        '.mp3',
+        '.mp4',
+        '.aac',
+        '.ogg',
+        '.wma',
+        '.flac',
+        '.m4a',
+        '.wav',
+      ]"
+      :label="!element.data.url ? 'Upload Audio' : 'Replace Audio'"
+      @upload="upload"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { defineEmits, defineProps } from 'vue';
+import type { Element } from '@tailor-cms/ce-audio-manifest';
 
-defineProps<{ element: Element }>();
-defineEmits(['save']);
+import UploadBtn from './UploadBtn.vue';
+
+const props = defineProps<{ element: Element }>();
+const emit = defineEmits(['save']);
+
+const upload = ({ url }: { key: string; url: string }) => {
+  const assets = { url };
+  emit('save', { ...props.element.data, assets });
+};
 </script>
 
 <style scoped></style>
