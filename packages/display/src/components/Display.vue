@@ -1,7 +1,7 @@
 <!-- eslint-disable vuejs-accessibility/media-has-caption -->
 <template>
-  <div v-if="data.url" class="tce-root d-flex justify-center pa-4">
-    <audio :src="data.url" controls @play="submit"></audio>
+  <div v-if="data.url" class="tce-root">
+    <audio :src="data.url" class="w-100" controls @play="submit"></audio>
   </div>
 </template>
 

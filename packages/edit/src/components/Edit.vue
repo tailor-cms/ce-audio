@@ -6,9 +6,7 @@
       :icon="manifest.ui.icon"
       :name="manifest.name"
     />
-    <div v-else class="d-flex justify-center pa-4">
-      <audio :src="element.data.url" controls></audio>
-    </div>
+    <audio v-else :src="element.data.url" class="w-100" controls></audio>
   </div>
 </template>
 
