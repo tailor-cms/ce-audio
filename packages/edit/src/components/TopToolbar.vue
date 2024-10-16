@@ -1,17 +1,8 @@
 <template>
   <div class="align-center justify-center">
     <UploadBtn
-      :extensions="[
-        '.mp3',
-        '.mp4',
-        '.aac',
-        '.ogg',
-        '.wma',
-        '.flac',
-        '.m4a',
-        '.wav',
-      ]"
-      :label="!element.data.url ? 'Upload Audio' : 'Replace Audio'"
+      :extensions="EXTENSIONS.join(', ')"
+      :label="!element.data.url ? 'Upload audio' : 'Replace audio'"
       @upload="upload"
     />
   </div>
@@ -22,6 +13,17 @@ import { defineEmits, defineProps } from 'vue';
 import type { Element } from '@tailor-cms/ce-audio-manifest';
 
 import UploadBtn from './UploadBtn.vue';
+
+const EXTENSIONS = [
+  '.mp3',
+  '.mp4',
+  '.aac',
+  '.ogg',
+  '.wma',
+  '.flac',
+  '.m4a',
+  '.wav',
+];
 
 const props = defineProps<{ element: Element }>();
 const emit = defineEmits(['save']);

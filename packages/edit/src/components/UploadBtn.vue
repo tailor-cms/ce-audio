@@ -12,7 +12,7 @@
     <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
     <input
       ref="uploadInputRef"
-      :accept="extensions.join(', ')"
+      :accept="extensions"
       class="d-none"
       type="file"
       @change="upload"
@@ -27,7 +27,7 @@ import { createUploadForm } from '@tailor-cms/cek-common';
 
 const storageService = inject('$storageService') as StorageApi;
 
-defineProps<{ label: string, extensions: string[] }>();
+defineProps<{ label: string; extensions: string }>();
 const emit = defineEmits(['upload']);
 
 const uploadInputRef = ref<HTMLInputElement | null>(null);
