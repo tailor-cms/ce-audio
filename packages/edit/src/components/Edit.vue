@@ -1,14 +1,11 @@
 <!-- eslint-disable vuejs-accessibility/media-has-caption -->
 <template>
   <div class="tce-audio">
-    <VSheet
+    <ElementPlaceholder
       v-if="!element.data.url"
-      class="d-flex justify-center align-center my-2 text-h6"
-      height="15.5rem"
-    >
-      <VIcon :icon="manifest.ui.icon" start />
-      {{ manifest.name }} placeholder
-    </VSheet>
+      :icon="manifest.ui.icon"
+      :name="manifest.name"
+    />
     <div v-else class="d-flex justify-center pa-4">
       <audio :src="element.data.url" controls></audio>
     </div>
@@ -19,6 +16,8 @@
 import { defineEmits, defineProps } from 'vue';
 import type { Element } from '@tailor-cms/ce-audio-manifest';
 import manifest from '@tailor-cms/ce-audio-manifest';
+
+import ElementPlaceholder from './ElementPlaceholder.vue';
 
 defineEmits(['save']);
 defineProps<{ element: Element; isFocused: boolean; isDisabled: boolean }>();
