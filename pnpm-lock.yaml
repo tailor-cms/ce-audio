@@ -64,6 +64,9 @@ importers:
 
   packages/edit:
     dependencies:
+      '@tailor-cms/cek-common':
+        specifier: ^0.0.3
+        version: 0.0.3
       vue:
         specifier: ^3.3.4
         version: 3.3.4
@@ -4152,7 +4155,7 @@ snapshots:
       vite-plugin-vuetify: 1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.3.17)
       vue: 3.3.4
       vue-tsc: 1.8.13(typescript@5.2.2)
-      vuetify: 3.3.17(typescript@5.2.2)(vite-plugin-vuetify@1.0.2)(vue@3.3.4)
+      vuetify: 3.3.17(typescript@5.3.3)(vite-plugin-vuetify@1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.3.17))(vue@3.3.4)
       webfontloader: 1.6.28
     transitivePeerDependencies:
       - '@babel/parser'
@@ -4286,7 +4289,7 @@ snapshots:
       vite-plugin-vuetify: 1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.4.0)
       vue: 3.3.4
       vue-tsc: 1.8.13(typescript@5.2.2)
-      vuetify: 3.4.0(typescript@5.3.3)(vite-plugin-vuetify@1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.4.0))(vue@3.3.4)
+      vuetify: 3.4.0(typescript@5.2.2)(vite-plugin-vuetify@1.0.2)(vue@3.3.4)
     transitivePeerDependencies:
       - '@types/node'
       - '@vue/composition-api'
@@ -4637,14 +4640,14 @@ snapshots:
       find-cache-dir: 3.3.2
       upath: 2.0.1
       vue: 3.3.4
-      vuetify: 3.3.17(typescript@5.2.2)(vite-plugin-vuetify@1.0.2)(vue@3.3.4)
+      vuetify: 3.3.17(typescript@5.3.3)(vite-plugin-vuetify@1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.3.17))(vue@3.3.4)
 
   '@vuetify/loader-shared@1.7.1(vue@3.3.4)(vuetify@3.4.0(typescript@5.2.2)(vite-plugin-vuetify@1.0.2)(vue@3.3.4))':
     dependencies:
       find-cache-dir: 3.3.2
       upath: 2.0.1
       vue: 3.3.4
-      vuetify: 3.4.0(typescript@5.3.3)(vite-plugin-vuetify@1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.4.0))(vue@3.3.4)
+      vuetify: 3.4.0(typescript@5.2.2)(vite-plugin-vuetify@1.0.2)(vue@3.3.4)
 
   '@vuetify/loader-shared@1.7.1(vue@3.3.4)(vuetify@3.6.11(typescript@5.2.2)(vite-plugin-vuetify@1.0.2)(vue@3.3.4))':
     dependencies:
@@ -7297,7 +7300,7 @@ snapshots:
       upath: 2.0.1
       vite: 4.4.9(@types/node@20.11.19)(sass@1.68.0)
       vue: 3.3.4
-      vuetify: 3.3.17(typescript@5.2.2)(vite-plugin-vuetify@1.0.2)(vue@3.3.4)
+      vuetify: 3.3.17(typescript@5.3.3)(vite-plugin-vuetify@1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.3.17))(vue@3.3.4)
     transitivePeerDependencies:
       - supports-color
 
@@ -7308,7 +7311,7 @@ snapshots:
       upath: 2.0.1
       vite: 4.4.9(@types/node@20.11.19)(sass@1.68.0)
       vue: 3.3.4
-      vuetify: 3.4.0(typescript@5.3.3)(vite-plugin-vuetify@1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.4.0))(vue@3.3.4)
+      vuetify: 3.4.0(typescript@5.2.2)(vite-plugin-vuetify@1.0.2)(vue@3.3.4)
     transitivePeerDependencies:
       - supports-color
 
@@ -7418,11 +7421,18 @@ snapshots:
       typescript: 5.2.2
       vite-plugin-vuetify: 1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.3.17)
 
-  vuetify@3.4.0(typescript@5.3.3)(vite-plugin-vuetify@1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.4.0))(vue@3.3.4):
+  vuetify@3.3.17(typescript@5.3.3)(vite-plugin-vuetify@1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.3.17))(vue@3.3.4):
     dependencies:
       vue: 3.3.4
     optionalDependencies:
       typescript: 5.3.3
+      vite-plugin-vuetify: 1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.3.17)
+
+  vuetify@3.4.0(typescript@5.2.2)(vite-plugin-vuetify@1.0.2)(vue@3.3.4):
+    dependencies:
+      vue: 3.3.4
+    optionalDependencies:
+      typescript: 5.2.2
       vite-plugin-vuetify: 1.0.2(vite@4.4.9(@types/node@20.11.19)(sass@1.68.0))(vue@3.3.4)(vuetify@3.4.0)
 
   vuetify@3.6.11(typescript@5.2.2)(vite-plugin-vuetify@1.0.2)(vue@3.3.4):
