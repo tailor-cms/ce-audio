@@ -1,18 +1,21 @@
 <template>
-  <div class="align-center justify-center">
-    <UploadBtn
-      :extensions="EXTENSIONS.join(', ')"
-      :label="!element.data.url ? 'Upload audio' : 'Replace audio'"
-      @upload="upload"
+  <div class="d-flex align-center justify-center">
+    <AssetInput
+      :extensions="EXTENSIONS"
+      :public-url="element.data.url"
+      :url="element.data.assets.url"
+      class="mx-auto"
+      upload-label="Upload audio"
+      @input="save"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 import { defineEmits, defineProps } from 'vue';
+import { AssetInput } from '@tailor-cms/core-components';
+import cloneDeep from 'lodash/cloneDeep';
 import type { Element } from '@tailor-cms/ce-audio-manifest';
-
-import UploadBtn from './UploadBtn.vue';
 
 const EXTENSIONS = [
   '.mp3',
@@ -28,10 +31,12 @@ const EXTENSIONS = [
 const props = defineProps<{ element: Element }>();
 const emit = defineEmits(['save']);
 
-const upload = ({ url }: { key: string; url: string }) => {
+const save = ({ url, publicUrl }: { url: string; publicUrl: string }) => {
   const assets = { url };
-  emit('save', { ...props.element.data, assets });
+  const elementData = Object.assign(cloneDeep(props.element.data), {
+    url: publicUrl,
+    assets,
+  });
+  emit('save', elementData);
 };
 </script>
-
-<style scoped></style>
