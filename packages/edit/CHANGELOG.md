@@ -1,5 +1,11 @@
 # @tailor-cms/ce-audio-edit
 
+## 0.0.3
+
+### Patch Changes
+
+- Core Components package bumped.
+
 ## 0.0.2
 
 ### Patch Changes
