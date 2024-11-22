@@ -1,4 +1,3 @@
-// Example counter component
 export interface ElementData {
   url: string | null;
   assets: { url?: string };
