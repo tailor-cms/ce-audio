@@ -1,6 +1,6 @@
 {
   "name": "@tailor-cms/ce-audio-manifest",
-  "description": "Tailor CMS audio element",
+  "description": "Tailor CMS audio element manifest",
   "author": "Studion <info@gostudion.com> (https://github.com/tailor-cms)",
   "type": "module",
   "version": "0.0.3",
