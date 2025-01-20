@@ -1,5 +1,11 @@
 # @tailor-cms/ce-audio-edit
 
+## 0.0.5
+
+### Patch Changes
+
+- Remove prefix from element type.
+
 ## 0.0.4
 
 ### Patch Changes
