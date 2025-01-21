@@ -1,5 +1,11 @@
 # @tailor-cms/ce-audio-server
 
+## 0.0.6
+
+### Patch Changes
+
+- Revert externalizing core-components.
+
 ## 0.0.5
 
 ### Patch Changes
