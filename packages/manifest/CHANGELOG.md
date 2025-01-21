@@ -1,5 +1,11 @@
 # @tailor-cms/ce-audio-manifest
 
+## 0.0.6
+
+### Patch Changes
+
+- Revert externalizing core-components.
+
 ## 0.0.5
 
 ### Patch Changes
