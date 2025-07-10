@@ -4,7 +4,7 @@
     <ElementPlaceholder
       v-if="!element.data.url"
       :icon="manifest.ui.icon"
-      :is-disabled="isDisabled"
+      :is-disabled="isReadonly"
       :is-focused="isFocused"
       :name="`${manifest.name} component`"
       active-icon="mdi-arrow-up"
@@ -20,8 +20,13 @@ import type { Element } from '@tailor-cms/ce-audio-manifest';
 import { ElementPlaceholder } from '@tailor-cms/core-components';
 import manifest from '@tailor-cms/ce-audio-manifest';
 
+defineProps<{
+  element: Element;
+  isDragged: boolean;
+  isFocused: boolean;
+  isReadonly: boolean;
+}>();
 defineEmits(['save']);
-defineProps<{ element: Element; isFocused: boolean; isDisabled: boolean }>();
 </script>
 
 <style lang="scss" scoped>
