@@ -1,5 +1,11 @@
 # @tailor-cms/ce-audio-display
 
+## 0.1.1
+
+### Patch Changes
+
+- Bump core-components.
+
 ## 0.1.0
 
 ### Minor Changes
