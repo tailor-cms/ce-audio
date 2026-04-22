@@ -25,21 +25,21 @@
     "prepublish": "pnpm build"
   },
   "dependencies": {
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.18.1"
   },
   "peerDependencies": {
     "vue": "^3.5.29"
   },
   "devDependencies": {
     "@tailor-cms/ce-audio-manifest": "workspace:*",
-    "@tailor-cms/eslint-config": "^2.0.0-beta.11",
+    "@tailor-cms/eslint-config": "2.0.0-beta.12",
     "@types/lodash-es": "^4.17.12",
-    "@vitejs/plugin-vue": "^6.0.5",
-    "typescript": "^6.0.2",
-    "vite": "^8.0.0",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.9",
     "vite-plugin-lib-inject-css": "^2.2.2",
-    "vue-tsc": "^3.2.5",
-    "vuetify": "^4.0.0"
+    "vue-tsc": "^3.2.7",
+    "vuetify": "^4.0.5"
   },
   "publishConfig": {
     "access": "public"

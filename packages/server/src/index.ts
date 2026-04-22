@@ -21,16 +21,13 @@ export const beforeDisplay: BeforeDisplayHook<Element> = (
 
 export const onUserInteraction: OnUserInteractionHook<Element> = (
   _element,
-  _context,
+  context,
   payload,
 ) => {
   const { currentTime, furthestTime } = payload;
   if (IS_CEK) {
-    USER_STATE.currentTime = currentTime;
-    USER_STATE.furthestTime = Math.max(
-      USER_STATE.furthestTime ?? 0,
-      furthestTime,
-    );
+    context.currentTime = currentTime;
+    context.furthestTime = Math.max(context.furthestTime ?? 0, furthestTime);
   }
   return { updateDisplayState: true };
 };
