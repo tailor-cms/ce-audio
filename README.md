@@ -19,7 +19,8 @@ Audio content element with file upload support.
 ## Display
 
 - Renders the audio with native HTML5 controls
-- Emits `interaction` event on play
+- Emits `interaction` event with `{ currentTime, furthestTime }` on play,
+  throttled during playback and debounced on seek
 
 ## Development
 
