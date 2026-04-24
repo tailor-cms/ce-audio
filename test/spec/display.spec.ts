@@ -8,6 +8,7 @@ const AUDIO_URL = 'https://example.com/test.mp3';
 
 test.beforeEach(async ({ page }) => {
   await elementClient.reset(ELEMENT_ID);
+  await elementClient.resetState(ELEMENT_ID);
   await page.goto(`/?id=${ELEMENT_ID}`);
   await page.waitForLoadState('networkidle');
 });
@@ -31,8 +32,4 @@ test.describe('Content rendering', () => {
     await expect(display.player).toBeVisible();
     await expect(display.player).toHaveAttribute('src', AUDIO_URL);
   });
-});
-
-test.afterAll(async () => {
-  await elementClient.reset(ELEMENT_ID);
 });

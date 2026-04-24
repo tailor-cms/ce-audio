@@ -9,6 +9,7 @@ const AUDIO_URL = 'https://example.com/test.mp3';
 
 test.beforeEach(async ({ page }) => {
   await elementClient.reset(ELEMENT_ID);
+  await elementClient.resetState(ELEMENT_ID);
   await page.goto(`/?id=${ELEMENT_ID}`);
   await page.waitForLoadState('networkidle');
 });
@@ -80,8 +81,4 @@ test.describe('Readonly mode', () => {
     await edit.setReadonly();
     await expect(edit.player).toBeVisible();
   });
-});
-
-test.afterAll(async () => {
-  await elementClient.reset(ELEMENT_ID);
 });
