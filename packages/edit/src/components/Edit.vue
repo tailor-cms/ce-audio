@@ -1,7 +1,7 @@
 <!-- eslint-disable vuejs-accessibility/media-has-caption -->
 <template>
   <div class="tce-audio">
-    <ElementPlaceholder
+    <TailorElementPlaceholder
       v-if="!element.data.url"
       :icon="manifest.ui.icon"
       :is-disabled="isReadonly"
@@ -15,9 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineEmits, defineProps } from 'vue';
 import type { Element } from '@tailor-cms/ce-audio-manifest';
-import { ElementPlaceholder } from '@tailor-cms/core-components';
 import manifest from '@tailor-cms/ce-audio-manifest';
 
 defineProps<{
@@ -26,7 +24,6 @@ defineProps<{
   isFocused: boolean;
   isReadonly: boolean;
 }>();
-defineEmits(['save']);
 </script>
 
 <style lang="scss" scoped>
