@@ -15,37 +15,36 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('When audio is not set', () => {
-  test('Shows placeholder', async ({ page }) => {
+  test('Shows dropzone as empty state', async ({ page }) => {
     const edit = new Edit(page);
-    await expect(edit.placeholder).toBeVisible();
+    await expect(edit.fileInput.dropzone).toBeVisible();
+    await expect(edit.placeholder).not.toBeVisible();
     await expect(edit.player).not.toBeVisible();
   });
 
   test('Can import audio via URL', async ({ page }) => {
     const edit = new Edit(page);
     await edit.focus();
-    await edit.fileInput.open();
+    await edit.fileInput.openUrlFromDropzone();
     await edit.fileInput.importUrl(AUDIO_URL);
     await expect(edit.player).toBeVisible();
     await expect(edit.player).toHaveAttribute('src', AUDIO_URL);
   });
 
-  test('Can upload audio file', async ({ page }) => {
+  test('Can upload audio file via dropzone', async ({ page }) => {
     const edit = new Edit(page);
     await edit.focus();
-    await edit.fileInput.open();
-    await edit.fileInput.upload(AUDIO);
+    await edit.fileInput.dropzoneUpload(AUDIO);
     await expect(edit.player).toBeVisible();
-    await expect(edit.fileInput.removeBtn).toBeVisible();
+    await expect(edit.fileInput.dropzone).not.toBeVisible();
+    await edit.fileInput.expectFile('test.mp3');
   });
 
   test('Rejects non-audio file', async ({ page }) => {
     const edit = new Edit(page);
     await edit.focus();
-    await edit.fileInput.open();
-    await edit.fileInput.upload(DOCUMENT);
-    await edit.fileInput.cancel();
-    await expect(edit.placeholder).toBeVisible();
+    await edit.fileInput.dropzoneUpload(DOCUMENT);
+    await expect(edit.fileInput.dropzone).toBeVisible();
     await expect(edit.player).not.toBeVisible();
   });
 });
@@ -61,24 +60,33 @@ test.describe('When audio is set', () => {
     await expect(edit.player).toBeVisible();
     await expect(edit.player).toHaveAttribute('src', AUDIO_URL);
   });
+
+  test('Can remove audio', async ({ page }) => {
+    const edit = new Edit(page);
+    await edit.focus();
+    await edit.fileInput.removeFromRow();
+    await expect(edit.player).not.toBeVisible();
+    await expect(edit.fileInput.dropzone).toBeVisible();
+  });
 });
 
 test.describe('Readonly mode', () => {
-  test('Hides upload prompt when empty', async ({ page }) => {
+  test('Shows placeholder instead of dropzone when empty', async ({ page }) => {
     const edit = new Edit(page);
     await edit.setReadonly();
-    await edit.focus();
     await expect(edit.placeholder).toBeVisible();
-    await expect(
-      edit.el.getByText('Use toolbar to upload the audio file'),
-    ).not.toBeVisible();
+    await expect(edit.fileInput.dropzone).not.toBeVisible();
   });
 
-  test('Keeps player visible when set', async ({ page }) => {
+  test('Keeps player visible and hides file actions when set', async ({
+    page,
+  }) => {
     await elementClient.update(ELEMENT_ID, { url: AUDIO_URL, assets: {} });
     await page.reload({ waitUntil: 'networkidle' });
     const edit = new Edit(page);
     await edit.setReadonly();
+    await edit.focus();
     await expect(edit.player).toBeVisible();
+    await expect(edit.fileInput.replaceBtn).not.toBeVisible();
   });
 });
